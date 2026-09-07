@@ -28,13 +28,20 @@ plain `<video>` element as an alternative to the embed div).
 (anywhere, or your future domain) or the player shows a blocked icon instead of playing.
 
 ## Video covers
-Each `.video-cover` button has an `<img src="https://vumbnail.com/{id}.jpg">` — a free
-unofficial service that returns a still frame from near the start of a Vimeo video, keyed only
-by its numeric ID. No file to export or upload; it just needs the same privacy setting as the
-embed itself (if the video can't be viewed, vumbnail can't grab a frame from it either — the
-`onerror="this.remove()"` on the `<img>` falls back to the plain black frame in that case, same
-look as before). Swap the ID in the `src` alongside the matching `data-vimeo-id` if you ever
-change a card's video.
+Each `.video-cover` button has a plain `<img>` pointing at a local file in `images/`:
+- Card 1 (Dictating instead of typing): `images/video-1-cover.png`
+- Card 2 (Electrolytes, honestly): `images/video-2-cover.png`
+- Card 3 (A walk and a rant about AI): `images/video-3-cover.png`
+
+These are manually-chosen screenshots, not auto-generated — an earlier version pulled a live
+thumbnail from vumbnail.com (an unofficial Vimeo-thumbnail service) keyed by video ID, but
+Vimeo's own auto-thumbnail is a landscape-ish crop even for vertical video, so it looked
+heavily zoomed once stretched into the 9:16 card. Swap these files directly (keep the same
+filenames, or update the `src` in `index.html`) to change a cover.
+
+The images are currently large, uncompressed PNGs (0.8–2.3MB each, screenshots straight off a
+phone) — worth running through a compressor (TinyPNG, Squoosh, etc.) before or after going live
+to cut page weight; nothing depends on them staying PNG or this exact file size.
 
 ## Still needed (flagged in the handoff, not resolved here)
 - **Favicon / OG image / analytics**: not specified in the design, not added here.
