@@ -27,9 +27,16 @@ plain `<video>` element as an alternative to the embed div).
 **Vimeo privacy setting**: each video's "Where can this be embedded" setting must allow it
 (anywhere, or your future domain) or the player shows a blocked icon instead of playing.
 
+## Video covers
+Each `.video-cover` button has an `<img src="https://vumbnail.com/{id}.jpg">` — a free
+unofficial service that returns a still frame from near the start of a Vimeo video, keyed only
+by its numeric ID. No file to export or upload; it just needs the same privacy setting as the
+embed itself (if the video can't be viewed, vumbnail can't grab a frame from it either — the
+`onerror="this.remove()"` on the `<img>` falls back to the plain black frame in that case, same
+look as before). Swap the ID in the `src` alongside the matching `data-vimeo-id` if you ever
+change a card's video.
+
 ## Still needed (flagged in the handoff, not resolved here)
-- **Video cover images**: no poster stills shipped with the handoff — add an `<img>` inside
-  each `.video-cover` button (see `index.html`) once covers exist.
 - **Favicon / OG image / analytics**: not specified in the design, not added here.
 - Name spelling was confirmed as **Putintsev** (matches the Instagram handle) — the original
   design file said "Putinsev".

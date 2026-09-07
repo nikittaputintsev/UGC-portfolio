@@ -368,6 +368,14 @@ section, footer {
   justify-content: center;
 }
 
+.video-cover__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .play-badge {
   width: 62px;
   height: 62px;
